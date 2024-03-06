@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import {API_ASSIGNMENT_NOTIFICATION_URL,API_STUDENT_ATTEND_CLASS_URL,API_STUDENT_HOMEWORK_LIVECLASS_URL,API_LIVECLASS_ORAL_URL} from '../Services/api'
-import { useParams } from 'react-router-dom';
+import Zoombanner from'../Images/Zoombanner.jpg';
+import {API_ASSIGNMENT_NOTIFICATION_URL,API_STUDENT_ATTEND_CLASS_URL,API_STUDENT_HOMEWORK_LIVECLASS_URL,API_LIVECLASS_ORAL_URL,API_LIVECLASS_HOME_ORAL_URL,API_STUDENT_ATTENDANCE_URL} from '../Services/api'
+import { useLocation, useParams } from 'react-router-dom';
 import Waitingclass from '../Components/Classmodules/Waitingclass';
-import Liveclass from '../Components/Liveclass/Liveclass';
 import axios from 'axios';
 
 import Stuedentclassworks from '../Components/Classmodules/Stuedentclassworks';
 import Liveoral from '../Components/Classmodules/Liveoral';
+import Liveclass from '../Components/Liveclass/Liveclass';
 export default function Livetreaming() {
   
 
     const {id}=useParams();
     const user_id = localStorage.getItem('user_id');
     const assignmentIdFromStorage = localStorage.getItem('assignmentId');
-    
+
+
+  
 
     useEffect(() => {
       const fetchData = async () => {
@@ -26,7 +29,7 @@ export default function Livetreaming() {
         }
       };
   
-      fetchData(); // Call the function to fetch data when the component mounts
+      fetchData(); 
   
     }, []);
 
@@ -37,7 +40,7 @@ export default function Livetreaming() {
      try{
       const assignolfechdet= await axios.get(`${API_LIVECLASS_ORAL_URL}/${user_id}/${id}`);
       setstdorlafetch(assignolfechdet.data.response);
-     // console.log(stdorlafetch);
+    
      }catch(error){
       console.log(error);
      }
@@ -84,6 +87,7 @@ export default function Livetreaming() {
        const [compodisplay,Setcompodisplay]=useState(null);
        const [studnethww,setstudnethww]=useState([]);
        const studentHW=async()=>{
+      
         try{
         const studentHWqry=await axios.get(`${API_STUDENT_HOMEWORK_LIVECLASS_URL}/${user_id}/${id}`);
         setstudnethww(studentHWqry.data.response);
@@ -94,7 +98,70 @@ export default function Livetreaming() {
       }
       }
 
+      // API_LIVECLASS_HOME_ORAL_URL
+
+      const [hworal,sethworal]=useState();
+
+      const studenthworal=async()=>{
+        try{
+        const  studenthworalqry=await axios.get(`${API_LIVECLASS_HOME_ORAL_URL}/${user_id}/${id}`);
+        sethworal(studenthworalqry.data.response);
+        console.log(hworal);
+      }catch(error){
+        console.log(error);
+      }
+      }
+
     
+ //student attendance api
+
+//  const [attendcls, setAttendcls] = useState([]);
+
+//   const stdattendance = async () => {
+//     try {
+//       const response = await axios.get(`${API_STUDENT_ATTENDANCE_URL}/${user_id}/${id}`);
+//       setAttendcls(response.data.res);
+//       console.log(attendcls); // Log the state value directly
+//     }catch (error) {
+//       console.log(error);
+//     }
+//   }
+
+//   useEffect(() => {
+//     stdattendance();
+//   }, []);
+
+//Student attendance api 
+const [attendcls, setAttendcls] = useState([]);
+const [playlistID, setPlaylistID] = useState(null);
+const location = useLocation();
+
+useEffect(() => {
+  const searchParams = new URLSearchParams(location.search);
+  const plid = searchParams.get('plid');
+  if (plid) {
+    setPlaylistID(plid); // Set playlistID state variable
+  }
+}, [location.search]);
+
+useEffect(() => {
+  const stdattendance = async () => {
+    try {
+      if (playlistID) {
+        const response = await axios.get(`${API_STUDENT_ATTENDANCE_URL}/${id}/${user_id}/${playlistID}`);
+        setAttendcls(response.data.res);
+        console.log(`${API_STUDENT_ATTENDANCE_URL}/${id}/${user_id}/${playlistID}`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+  stdattendance(); // Call stdattendance inside useEffect that depends on playlistID
+}, [playlistID,attendcls]); // Trigger stdattendance when playlistID changes
+
+
+
 
   return (
     
@@ -105,10 +172,9 @@ export default function Livetreaming() {
             <div className='row'>
                 <div className='col-md-5 h-100'>
                 <div className='jigsawlivesteaming'>
-                
+                {/* <img src={Zoombanner}></img> */}
                 <Liveclass/>
-                {/* <iframe width="560" height="350" src="https://us05web.zoom.us/j/83843735412?pwd=UomyYWbdAThH1UkECTllLu7W5BHDK4.1" ></iframe> */}
-                 </div>
+               </div>
                 </div>
 
                 <div className="col-lg-7">
@@ -134,7 +200,7 @@ export default function Livetreaming() {
             </li>
             <li className="nav-item" role="presentation">
               <a className="nav-link" id="pills-home-tab" data-bs-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false"  onClick={() => {Setcompodisplay('Liveoral')}}>
-               Oral Class
+               Class Work Oral
               </a>
             </li>
             <li className="nav-item" role="presentation">
@@ -143,8 +209,8 @@ export default function Livetreaming() {
               </a>
             </li>
             <li className="nav-item" role="presentation">
-              <a className="nav-link" id="pills-contact-tab" data-bs-toggle="pill" href="#pills-333" role="tab" aria-controls="pills-333" aria-selected="false">
-                Student Quiz
+              <a className="nav-link" id="pills-hworal-tab" data-bs-toggle="pill" href="#pills-hworal" role="tab" aria-controls="pills-hworal" aria-selected="false" onClick={studenthworal}>
+                Home Work Oral
               </a>
             </li>
             <li className="nav-item" role="presentation">
@@ -152,6 +218,12 @@ export default function Livetreaming() {
                 Student Paper
               </a>
             </li>
+            {/* <li className="nav-item" role="presentation">
+              <a className="nav-link" id="pills-contact-tab"  role="button"  aria-selected="false" onClick={stdattendance}>
+                Student Attendance
+              </a>
+            </li> */}
+           
           </ul>
           <div className="tab-content" id="pills-tabContent">
             <div className="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -197,7 +269,7 @@ export default function Livetreaming() {
                       <table className="table">
                         <thead>
                           <tr>
-                            <th scope="col" style={{ width: '150px' }}>Oral Sheet</th>
+                            <th scope="col" style={{ width: '150px' }}>Class Work Oral</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -264,8 +336,44 @@ export default function Livetreaming() {
               </div>
            
             </div>
-            <div className="tab-pane fade" id="pills-333" role="tabpanel" aria-labelledby="pills-333-tab">
-              {/* Content for the 'Student Quiz' tab */}
+            <div className="tab-pane fade" id="pills-hworal" role="tabpanel" aria-labelledby="pills-hworal-tab">
+             
+            <div className="row">
+                <div className="col-md-12">
+                  <div className="assign_assignment_table">
+                    <form>
+                      <table className="table">
+                        <thead>
+                          <tr>
+                            <th scope="col" style={{ width: '150px' }}> Home Work Oral</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td style={{ width: '250px' }}>
+                            <ul>
+                            {hworal?.assignment_id?.map((studnhomeoralass, index)=>{
+
+                          
+                              return(
+                                <li key={index} >
+                                   <p>{index + 1}. {studnhomeoralass.name}</p> 
+                                  </li>
+                              )
+                            })}
+                           </ul>
+                              
+                            </td>
+                          
+                          </tr>
+                        </tbody>
+                      </table>
+                    </form>
+                  </div>
+                </div>
+              </div>
+           
+
             </div>
             <div className="tab-pane fade" id="pills-paper" role="tabpanel" aria-labelledby="pills-paper-tab">
               {/* Content for the 'Student Paper' tab */}

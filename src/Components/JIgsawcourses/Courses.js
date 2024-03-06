@@ -34,19 +34,19 @@ function Courses(props){
         <div className="row">
 
           
-      {course.map((courseData, index) => (
+      {course?.map((courseData, index) => (
   
   <div className="col-sm-12 col-md-6 col-lg-3 mt-2" key={index} >
-    <Link to={`../Coursesplaylists/${courseData._id}`} className="text-dark">
+    <Link to={`../Coursesplaylists/${courseData?._id}`} className="text-dark">
     {/* <Link to={`../CourseDetails/${courseData._id}`} className="text-dark"> */}
     
          <div className="popular_co">
-          <img src={image_pth + courseData.courseImage} className="img-fluid" alt="Course" />
+          <img src={image_pth + courseData?.courseImage} className="img-fluid" alt="Course" style={{height:"201px",width:"100%"}} />
         </div>
 
      
           <div className="course_cont">
-          <h5 style={{ color: '#225F9D', textTransform: 'uppercase' }}>{courseData.courseName}</h5>
+          <h5 style={{ color: '#225F9D', textTransform: 'uppercase' }}>{courseData?.courseName}</h5>
           {/* { courseData.payment.map((fee,kd)=>{
 
             const courseFees=fee.fee;
@@ -63,10 +63,10 @@ function Courses(props){
           }) 
          } */}
 
-         {courseData.teacher.map((teacherdet,index)=>{
+         {courseData?.teacher.map((teacherdet,index)=>{
           return(
-            <Link to={`../Educatorsdetails/${teacherdet._id}`} className="text-dark">
-            <p className="text-muted"key={index}> By  {teacherdet.name}  </p>
+            <Link to={`../Educatorsdetails/${teacherdet?._id}`} className="text-dark">
+            <p className="text-muted"key={index}> By  {teacherdet?.name}  </p>
             </Link>
           )
          })}

@@ -32,16 +32,23 @@ import { Link } from "react-router-dom";
 
                  <div className='row'>
                
-                {techcourses.map((techcour,index)=>(
+                {techcourses.map((techcour,index)=>{
 
-                
+              const startDate = new Date(techcour?.startDate);
+              const sdate = startDate?.getDate(); 
+              const smonth = startDate?.toLocaleString("default", { month: "long" }); 
+              const syears = startDate?.getFullYear();
+              const courseStartDate=`${syears} ${smonth} ${sdate}`;
+
+                  return  (
                 <div className='col-sm-12 col-md-6 col-lg-3 mb-4'  key={index}>
                 <Link to={`../CourseDetails/${techcour._id}`} className="text-dark" >
                 <div className='popular_co'>
-                <img src={image_pth + techcour.thumbnail} className="img-fluid" alt="Course" />
+                <img src={image_pth + techcour.thumbnail} className="img-fluid" alt="Course"  style={{height:"201px"}}/>
                 </div>
                 <div className='course_cont'>
                 <h5><span style={{color:'#225F9D'}}> {techcour.playlist} </span> </h5>
+                <p class="mb-0"> Batch Start Date :- {courseStartDate}</p>
 
                 { techcour.payments.map((fee,kd)=>{
 
@@ -63,7 +70,7 @@ import { Link } from "react-router-dom";
             </div>
           
 
-            ))}
+                )})}
 
            
         </div>

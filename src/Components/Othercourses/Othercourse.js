@@ -6,8 +6,6 @@ import { Link} from 'react-router-dom';
 
 function Othercourse(){
     
-    
-  
 
     const [rltCourse,setrltCourse]=useState([]);
     const image_pth=api_path;
@@ -15,7 +13,7 @@ function Othercourse(){
 
     const relatedCourse=async()=>{
         const relatedCourseqry=await axios.get(`${API_FETCH_RELATED_COURSES_URL}`);
-      //  console.log(relatedCourseqry.data.response);
+       //  console.log(relatedCourseqry.data.response);
         setrltCourse(relatedCourseqry.data.response);
     //  console.log(rltCourse);
     }
@@ -27,21 +25,17 @@ function Othercourse(){
      <section className='section section2 courese_home'>
     <div className='container'>
         <div className='title'>
-           <h4> Vedic Maths, English  and  more other Courses </h4> 
+           <h4> Vedic Maths, Abacus  and  more other Courses </h4> 
         </div>
 
         <div className='row'>
-            
-
-
-
             {rltCourse.map((courseItem,index)=>{
               return(
            
             <div className='col-sm-12 col-md-6 col-lg-3 mb-2'key={index}>
             <Link to={`../Coursesplaylists/${courseItem._id}`} className="text-dark">
-            <div className='popular_co'>
-            <img src={image_pth + courseItem.courseImage} className='img-fluid'/>
+            <div className='popular_co' >
+            <img src={image_pth + courseItem.courseImage} className='img-fluid' style={{height:"201px",width:"100%"}} />
             </div>
             </Link>
             <div className='course_cont'>

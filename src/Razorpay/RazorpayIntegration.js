@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 //  alert(user_id);
 //const [paymentStatus,setpaymentStatus]=useState([]);
 
-const RazorpayIntegration = ({amount,courseID,user_id}) => {
+const RazorpayIntegration = ({amount,courseID,user_id,coupan,discountamount,coursefees}) => {
 
   const Navigate=useNavigate();
 
@@ -55,7 +55,11 @@ const paymentdone= async()=>{
     user_id:user_id,
     course_id:courseID,
     transcation_id:payId,
-    payment_status:'done'
+    payment_status:'done',
+    amount:amount,
+    coupan:coupan,
+    discount_amount:discountamount,
+    course_amount:coursefees
   };
   const paymentdoneqry=await axios.postForm(`${API_COURSES_PAYMENT_URL}`,paymnetdata);
 console.log(paymentdoneqry.data.response);

@@ -107,6 +107,7 @@ const [couponResult, setCouponResult] = useState('');
 const [cuponInput,setcuponInput]=useState(false); 
 const [InvalidCoupancd,setInvalidCoupancd]=useState(false);
 const [CourseAmountWCupon,setCourseAmountWCupon]=useState(null);
+const [Couponapplys,setCouponapplys]=useState('');
 
 
 const handleCouponCodeSubmit = async (e) => {
@@ -140,10 +141,15 @@ const handleCouponCodeSubmit = async (e) => {
       if (responseData.type === 'Amount') {
         const totalUserAmount = TotalFees - responseData.discount;
         setCourseAmountWCupon(totalUserAmount);
+        setCouponapplys(responseData.discount);
         
+
       } else if (responseData.type === 'Percent') {
         const totalUserAmount = (1 - responseData.discount / 100) * TotalFees;
+        const discount_amount = TotalFees*responseData.discount/100;
+        //alert(discount_amount);
         setCourseAmountWCupon(totalUserAmount);
+        setCouponapplys(discount_amount);
       }
     } else {
       setInvalidCoupancd(true);
@@ -324,8 +330,8 @@ const handleCheckboxDiscount = (event) => {
                     </div> */}
 
                   <div>
-                 
-                  <RazorpayIntegration amount= {CourseAmountWCupon===null ?  TotalFees : CourseAmountWCupon} courseID={id}  user_id={user_id}/>
+               
+                  <RazorpayIntegration amount= {CourseAmountWCupon===null ?  TotalFees : CourseAmountWCupon} courseID={id} coupan={couponCode} user_id={user_id} discountamount={Couponapplys} coursefees={TotalFees}/>
                   {/* <RazorpayIntegration amount= {TotalFees} courseID={id}/> */}
                   </div>
 

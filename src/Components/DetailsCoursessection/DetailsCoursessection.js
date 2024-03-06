@@ -80,7 +80,7 @@ const Chapterclass=async()=>{
               <div className='col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 my-2'>
               <div className='text-center d-flex align-items-center justify-content-center'>
               <div className='teacherp_image me-2'>
-              <img src={`${imgePATH}${usesltcourse?.thumbnail}`} className="img-fluid imageddd"  />
+              <img src={`${imgePATH}${usesltcourse?.thumbnail}`} className="img-fluid imageddd"style={{width:"100%",height:"200px"}}  />
               </div>
               </div>
               </div>
@@ -192,57 +192,75 @@ const Chapterclass=async()=>{
     <section className='section section2 courese_home'>
     <div className='container'>
         <div className='title'>
-          {/* {playchapter?.chapters[0]?.chapter_name} */}
-           <h4> Explore the   {usesltcourse?.playlist}  Classes Playlist</h4> 
+           <h4>  {usesltcourse?.playlist}  Classes </h4> 
         </div>
 
        
-      
       <div className='row'>
       {playchapter?.chapters?.map((chpaters,index)=>{
-         const startDate = new Date(chpaters.lesstionStartDate);
-         const sdate = startDate.getDate(); 
-         const smonth = startDate.toLocaleString("default", { month: "long" }); 
-         const syears = startDate.getFullYear();
-         const courseStartDate=`${syears} ${smonth} ${sdate}`;
-         
+        // course start date
+        const crsstartDate = chpaters.lesstionStartDate;
+        const courseStartDate = crsstartDate.split('T')[0];
 
-        const endDate = new Date(chpaters.lessionEndDate);
-        const edate = endDate.getDate(); 
-        const emonth = endDate.toLocaleString("default", { month: "short" }); 
-        const eyears = startDate.getFullYear();
-        const courseEtartDate=`${edate} ${emonth} ${eyears}`;
+        // course start time
+        const crsstartTime = crsstartDate.split('T')[1].split('.')[0]; 
+       
+
+         // course end date
+         const crsenddate = chpaters.lessionEndDate;
+         const courseEtartDate = crsenddate.split('T')[0];
+        
+         // course end time
+        const crsendTime = crsenddate.split('T')[1].split('.')[0]; 
+        
+       
 
         const today = new Date();
-        const tdate = today.getDate();
-        const tmonth = today.toLocaleString("default", { month: "short" });
-        const tyear = today.getFullYear();
-        const todayDate = `${tdate} ${tmonth} ${tyear}`;
+        // Extract year, month, and day components
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed, so add 1
+        const day = String(today.getDate()).padStart(2, '0');
+         const todayDate = `${year}-${month}-${day}`;
 
+          // Current Time
+         const options = { timeZone: 'Asia/Kolkata', hour12: false  };
+          const currentTime = today.toLocaleTimeString('en-IN', options);
+        
+      
+      
         const coursePlayState=()=>{
-         
-          Swal.fire({
+         Swal.fire({
             icon: 'error',
             title: `Course Start Date ${courseStartDate}`,
            })
-      
         }
 
         
        
         return(
         <div className='row my-2' key={index} >
-         
+        
       <div className='col-sm-12 col-md-4 col-lg-4 mx-auto text-center align-self-top float-end'>
-      
+    {crsendTime}
      <Link 
-      to={ user_id===null? null: userEntroll?.payment_status === "done"?  new Date(courseStartDate) <=  new Date(todayDate) ? `../Livetreaming/${chpaters._id}`:null : null   }  className='text-dark'
+      to={ user_id===null? null: userEntroll?.payment_status === "done"?  courseStartDate ==  todayDate && currentTime > crsstartTime && currentTime < crsendTime  ?    `../Livetreaming/${chpaters._id}?plid=${play_id}`:null : null   }  className='text-dark'
       onClick={(e) => {
       if (user_id === null) {
         e.preventDefault();
         showUserLogin();
       } else if (userEntroll?.payment_status === "done") {
-        if (new Date(courseStartDate) >= new Date(todayDate)) {
+
+        if(courseStartDate > todayDate )
+        {
+          e.preventDefault();
+          coursePlayState();
+        }
+if(todayDate >  courseEtartDate){
+alert('class is over');
+}
+
+
+        if (courseStartDate == todayDate  && currentTime < crsstartTime && currentTime < crsendTime) {
           e.preventDefault();
           coursePlayState();
         }
@@ -254,18 +272,6 @@ const Chapterclass=async()=>{
   >
     
 
-{/* <Link 
-      to={ user_id===null? null: userEntroll?.payment_status === "done"?  new Date(courseStartDate) <=  new Date(todayDate) ? `${chpaters.url}`:null : null   } key={index} className='text-dark'
-     target='blank' 
-     onClick={user_id===null?showUserLogin:userEntroll?.payment_status === "done"?new Date(courseStartDate) <=  new Date(todayDate) ?null:coursePlayState:plsEnroll}
-       > */}
-       
-
-    {/* <Link 
-    to={ user_id===null? null: userEntroll?.payment_status === "done"?  new Date(courseStartDate) <=  new Date(todayDate) ? `/Videoclass/${chpaters._id}`:null : null   } key={index} className='text-dark'
-    onClick={user_id===null?showUserLogin:userEntroll?.payment_status === "done"?new Date(courseStartDate) <=  new Date(todayDate) ?null:coursePlayState:plsEnroll}
-    > */}
-     
       <div className='image_ur'>
       <img src={`${imgePATH}${chpaters.lessionThumbnail}`} className="img-fluid imageddd"/>
       </div>
@@ -277,7 +283,8 @@ const Chapterclass=async()=>{
       
       <h5> <span style={{color:'#225F9D'}}> {chpaters.chapter_name}</span></h5>
       <p className="text-muted m-0 text-info">  Mode:- {chpaters.mode} </p>
-      <p className="mb-0">Start Date :- {courseStartDate}</p>
+      <p className="mb-0">Start Date :- {courseStartDate}  </p>
+      <p className="mb-0">Start Time :- {crsstartTime}  </p>
       <p style={{textAlign:"justify"}}>{chpaters.chapterDscription}</p>
       
     

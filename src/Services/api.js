@@ -1,7 +1,7 @@
 //export const API_BASE_URL = 'https://example.com/api';
 //export const API_PATH = '/path';
 
-export const api_path = 'https://lmsnodeadmin.onrender.com/';
+export const api_path = 'http://192.168.1.5:3000/';
 
 export const API_USER_SENDOTP_LOGIN_URL = `${api_path}api/register/user_auth`;
 export const API_USER_SENDOTP_URL  =`${api_path}api/register/otp_validate`;
@@ -52,17 +52,19 @@ export const API_STUDENT_HOMEWORK_LIVECLASS_URL=`${api_path}api/assignment/get_h
 export const API_STUDENT_HOMEWORK_LIVECLASS_STATUS_URL=`${api_path}api/assignment/work_done_status`;
 export const API_STUDENT_WORKDETIALS_URL=`${api_path}api/teacher_auth_login/view_all_assignment_allquestion`;
 export const API_LIVECLASS_ORAL_URL=`${api_path}api/assignment/get_class_oral`;
+export const API_LIVECLASS_HOME_ORAL_URL=`${api_path}api/assignment/get_home_oral`;
 export const API_LIVECLASS_ORA_QUESTIONL_URL=`${api_path}api/assignment/get_assignment_question`;
 export const API_LIVECLASS_ORA_QUESTIONL_ANS_SUBMIT_URL=`${api_path}api/assignment/get_class_oral_answer`;
 
 export const API_LIVECLASS__CLASS_ORAL_ASSIGNMENT_URL=`${api_path}api/student/get_every_stundet_classwork_oral`;
-
+export const API_STUDENT_ATTENDANCE_URL=`${api_path}api/assignment/student_attendance`;
+export const API_STUDENT_CLASS_ATTENDANCE_URL=`${api_path}api/teacher_auth_login/student_attendance_for_profile`;
+export const API_STUDENT_COURSE_PAYMENT_DETAILS_URL=`${api_path}api/teacher_auth_login/get_payment_details`;
 //export const API_UPDATE_USER_PROFILE_URL ='http://localhost/apis/update_student_api.php';
 // export const API_FETCH_USER_PROFILE_URL = 'http://localhost/apis/user_fetch_apii.php';
 
+//export const API_FETCH_EDUCATORS_ABOUT_URL ='http://localhost/apis/fetch_educators_api.php';
 
-
-export const API_FETCH_EDUCATORS_ABOUT_URL ='http://localhost/apis/fetch_educators_api.php';
 
 
 
