@@ -1,0 +1,14 @@
+.top_header{
+    position: relative;
+    background-color:#225F9D;
+   margin: 0px;
+}
+.top_header .top_content{
+    color: #fff;
+    text-align: center;
+}
+.top_header .top_content p{
+    padding: 5px 0px;
+    margin-bottom: 2px;
+}
+

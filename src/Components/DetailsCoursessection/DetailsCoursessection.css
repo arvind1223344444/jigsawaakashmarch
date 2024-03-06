@@ -1,0 +1,263 @@
+/*about course*/
+
+.course_card_wrapper .coursefdd {
+    background-color: #f7f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 16px 32px 0px rgba(233, 238, 242, 0.4);
+    transition: all 300ms ease 0s;
+    padding: 32px 0px;
+}
+.coursefdd_image{
+    object-fit: cover;
+    background-color: #E9EEF2;
+    overflow: hidden;
+    position: relative;
+    height: 200px;
+    width: 320px;
+    margin-right: 32px;
+    border-radius: 8px;
+    transition: all 300ms ease-in-out 0s;
+    text-align: center;
+}
+.coursefdd_image .imageddd{
+    -webkit-user-drag: none;
+    user-select: none;
+    height: 100%;
+    width: 100%;
+    transform: scale(1.02);
+    background-color:#E9EEF2;
+    object-fit: cover;
+}
+.SyllabusTag_clr{
+    font-size: 12px;
+    line-height: 150%;
+    margin: 0px;
+    text-transform: uppercase;
+    /* display: inline; */
+    font-weight: 700;
+    color:#2d81f7;
+}
+.coursefdd_details{
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width:100%;
+}
+.h1_CourseTitle{
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 120%;
+    margin: 0px 0px 8px;
+    transition: all 300ms ease 0s;
+    color: #3c4852;
+}
+.divider{
+    background-color:#e9eef2;
+    width: 100%;
+    margin-top: 22px;
+    margin-bottom: 24px;
+}
+.css-1rekhm8-EnrollSection {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+}
+.css-156ai5-Flex {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    grid-column: span 5 / auto;
+    margin-right: 40px;
+}
+.css-1ds6v2x-P2 {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 150%;
+    margin: 0px;
+    color: var(--color-text-secondary);
+}
+.css-1jfadxn-H4-StyH4 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 150%;
+    color: var(--color-text-primary);
+    margin: 4px 0px 0px;
+    display: unset;
+    width: unset;
+    white-space: unset;
+    overflow: unset;
+    text-overflow: unset;
+}
+.css-13ceg5v-RightWrapper {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 16px;
+    align-self: end;
+}
+@media(max-width:767px){
+    .course_card_wrapper .coursefdd {
+    background-color: #f7f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 16px 32px 0px rgba(233, 238, 242, 0.4);
+    transition: all 300ms ease 0s;
+    padding: 10px 0px;
+    }
+    .coursefdd_image{
+        object-fit: cover;
+        background-color: #E9EEF2;
+        overflow: hidden;
+        position: relative;
+        height: auto;
+        width: 100%;
+        margin-right: 32px;
+        border-radius: 8px;
+        transition: all 300ms ease-in-out 0s;
+        text-align: center;
+    }
+    .css-1rekhm8-EnrollSection {
+        justify-content: normal;
+        flex-direction: column;
+    }
+    .css-13ceg5v-RightWrapper {
+        width: 100%;
+        align-self: center;
+        margin-top:10px;
+    }
+    .css-1rekhm8-EnrollSection.euycuoa2 .css-13ceg5v-RightWrapper.euycuoa3{
+    width:100%;
+    }
+    .css-1rekhm8-EnrollSection.euycuoa2 .subscription_btn{
+        width:100%;
+    }
+    .css-1rekhm8-EnrollSection.euycuoa2 .subscription_btn .ss{
+        width:100%;
+    }
+    
+     
+}
+
+
+
+.rbt-shadow-box {
+    border-radius: 6px;
+    background: #ffffff;
+    overflow: hidden;
+    box-shadow: 0px 6px 34px rgba(215, 216, 222, 0.41);
+    padding: 30px;
+}
+.rbt-title-style-3 {
+    margin-bottom: 24px;
+    font-size: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e6e3f14f;
+    font-weight: 700;
+}
+.rbt-accordion-style.rbt-accordion-02 .jg_aco {
+    background: transparent;
+    border-radius: 0px!important;
+}
+.rbt-accordion-style.rbt-accordion-02 .jg_aco .jg_aco_header {
+    border-bottom: 1px solid #e6e3f1;
+}
+.rbt-accordion-style .jg_aco .jg_aco_header button {
+    font-size: 18px;
+    line-height: 27px;
+    outline: none;
+    text-decoration: none;
+    box-shadow: none;
+    width: 100%;
+    text-align: left;
+   background-color: transparent;
+    position: relative;
+    font-weight: 600;
+}
+
+.rbt-accordion-style.rbt-accordion-02 .jg_aco .jg_aco_body-body {
+    padding: 20px 20px 20px 0;
+    border-top: 0;
+    background: transparent;
+}
+.rbt-course-main-content .course-content-left {
+    display: flex;
+    align-items: center;
+}
+.rbt-course-main-content li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color:#000;
+}
+.rbt-course-main-content .course-content-right span {
+    display: inline-block;
+    margin: 0 5px;
+    margin-bottom: 10px;
+}
+.rbt-badge.variation-03 {
+    padding: 0 12px;
+}
+.bg-primary-opacity {
+    background:#2f57ef21;
+    color: #2f57ef!important;
+}
+.rbt-accordion-style.rbt-accordion-02 .jg_aco ul{
+    margin:0px;
+    padding-left:0px ;
+}
+
+.rbt-accordion-style.rbt-accordion-02 .jg_aco{
+    border:none;
+}
+.css-1skwus0-WeekInfoWrapper {
+    position: sticky;
+    top: 235px;
+    background-color: rgb(248,249,250);
+    padding:20px
+}
+.css-1lq9wct-StyledTypo {
+    margin: 0px 0px 8px;
+    color: rgb(60, 72, 82);
+    font-weight: bold;
+}
+.h5_variant {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: -0.005em;
+}
+.p2_variant {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+}
+.css-mdulup {
+    margin: 0;
+    color: #7a8b94;
+}
+.css-1cx04ej-H4{
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 150%;
+    color: #3c4852;
+}
+
+@media only screen and (max-width: 600px) {
+    .rbt-course-main-content .course-content-right {
+        margin-top: 10px;
+    }
+    .rbt-accordion-style .jg_aco .jg_aco_header .coursttt{
+        flex-direction: column;
+    }
+    .accordion-button{
+        align-items: left!important;
+        padding-left:2px;
+    } 
+    .rbt-shadow-box {
+        padding: 6px;
+    }
+        
+  }

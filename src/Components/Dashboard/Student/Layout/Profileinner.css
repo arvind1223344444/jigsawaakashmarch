@@ -1,0 +1,46 @@
+.section.student_profileinner_section{
+    /* background-color:#225F9D; */
+    /* background-color: #899db1; */
+    background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(8 51 95));
+    }
+    .user_profile_img_info{
+        display: flex;
+        align-items: center;
+    }
+    .profile_tumbnail_avtar{
+        margin-right: 20px;
+        position: relative;
+    }
+    .profile_tumbnail_avta.size-lg{
+        min-width: 120px;
+        max-width: 120px;
+        width: 120px;
+        height: 120px;
+        background-color:gray;
+    }
+    .profile_tumbnail_avta.size-lg {
+        margin-right: 20px;
+        position: relative;
+    }
+    .jigsaww-content  p   {
+        color:#fff;
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .user_profile_img_info_we{
+            flex-direction: column;
+        }
+        .user_profile_img_info{
+            flex-direction: column;  
+         }
+         .profile_tumbnail_avta.size-lg{
+            margin:0px;
+         }
+        
+      
+        
+      }
+    
+      
+    
+    

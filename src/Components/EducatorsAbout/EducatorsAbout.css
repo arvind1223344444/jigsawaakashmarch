@@ -1,0 +1,138 @@
+.teacherpro_card_wrapper .coursefdd {
+    background-color: #f7f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 16px 32px 0px rgba(233, 238, 242, 0.4);
+    transition: all 300ms ease 0s;
+    padding: 32px 0px;
+}
+.teacherp_image{
+    object-fit: cover;
+    background-color: #E9EEF2;
+    overflow: hidden;
+    position: relative;
+    height: 200px;
+    width: 320px;
+    margin-right: 32px;
+    border-radius: 8px;
+    transition: all 300ms ease-in-out 0s;
+    text-align: center;
+}
+.teacherp_image .imageddd{
+    -webkit-user-drag: none;
+    user-select: none;
+    height: 100%;
+    width: 100%;
+    transform: scale(1.02);
+    background-color:#E9EEF2;
+    object-fit: cover;
+}
+.SyllabusTag_clr{
+    font-size: 12px;
+    line-height: 150%;
+    margin: 0px;
+    text-transform: uppercase;
+    /* display: inline; */
+    font-weight: 700;
+    color:#2d81f7;
+}
+.coursefdd_details{
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width:100%;
+}
+.h1_CourseTitle{
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 120%;
+    margin: 0px 0px 8px;
+    transition: all 300ms ease 0s;
+    color: #3c4852;
+}
+.divider{
+    background-color:#e9eef2;
+    width: 100%;
+    margin-top: 22px;
+    margin-bottom: 24px;
+}
+.css-1rekhm8-EnrollSection {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+}
+.css-156ai5-Flex {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    grid-column: span 5 / auto;
+    margin-right: 40px;
+}
+.css-1ds6v2x-P2 {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 150%;
+    margin: 0px;
+    color: var(--color-text-secondary);
+}
+.css-1jfadxn-H4-StyH4 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 150%;
+    color: var(--color-text-primary);
+    margin: 4px 0px 0px;
+    display: unset;
+    width: unset;
+    white-space: unset;
+    overflow: unset;
+    text-overflow: unset;
+}
+.css-13ceg5v-RightWrapper {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 16px;
+    align-self: end;
+}
+@media(max-width:767px){
+    .teacherpro_card_wrapper .coursefdd {
+    background-color: #f7f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 16px 32px 0px rgba(233, 238, 242, 0.4);
+    transition: all 300ms ease 0s;
+    padding: 10px 0px;
+    }
+    .teacherp_image{
+        object-fit: cover;
+        background-color: #E9EEF2;
+        overflow: hidden;
+        position: relative;
+        height: auto;
+        width: 100%;
+        margin-right: 32px;
+        border-radius: 8px;
+        transition: all 300ms ease-in-out 0s;
+        text-align: center;
+    }
+    .css-1rekhm8-EnrollSection {
+        justify-content: normal;
+        flex-direction: column;
+    }
+    .css-13ceg5v-RightWrapper {
+        width: 100%;
+        align-self: center;
+        margin-top:10px;
+    }
+    .css-1rekhm8-EnrollSection.euycuoa2 .css-13ceg5v-RightWrapper.euycuoa3{
+    width:100%;
+    }
+    .css-1rekhm8-EnrollSection.euycuoa2 .subscription_btn{
+        width:100%;
+    }
+    .css-1rekhm8-EnrollSection.euycuoa2 .subscription_btn .ss{
+        width:100%;
+    }
+    
+     
+}

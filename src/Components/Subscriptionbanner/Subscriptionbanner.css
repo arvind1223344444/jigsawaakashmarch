@@ -1,0 +1,48 @@
+.Subscriptionbanner .Subscriptionb_title h2{
+color:var(--pr);
+font-style: normal;
+font-weight: 700;
+line-height: 44px;
+}
+
+.Subscriptionbanner .Subscriptionb_title p{
+font-weight: 600;
+line-height: 19px;
+color: #3C4852;
+}
+.Subscriptionbanner .Subscriptionb_title{
+margin-bottom: 12px;
+width: 70%;
+}
+/* .section.Subscriptionbanner{
+    padding-top: 0rem;
+} */
+.Subscriptionbanner .sufeature{
+margin: 20px 0px;
+}
+.sufeature {
+ padding: 20px;
+}
+.sufeature p{
+color:#3C4852;
+font-weight: 600;
+line-height: 18px;
+}
+
+
+@media(max-width:767px){
+.Subscriptionbanner .Subscriptionb_title{
+margin-bottom: 12px;
+width: 100%;
+}
+.sufeature {
+    padding: 0px 20px;
+   }
+   .Subscriptionbanner .Subscriptionb_title h2{
+    color:var(--pr);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    margin-bottom: 8px;
+    }
+}

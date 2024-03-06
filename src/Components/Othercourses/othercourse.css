@@ -1,0 +1,29 @@
+.courese_home{
+    position: relative;
+    width: 100%;
+}
+.courese_home .title h4{
+    margin-bottom: 20px;
+    /* font-size: 20px; */
+    font-weight: 600;
+    line-height: 26px;
+    letter-spacing: -0.005em;
+}
+.courese_home .popular_co{
+    width: 100%;
+    height:auto;
+}
+.course_cont{
+    display: flex;
+    flex-flow: column;
+    margin-top: 14px;
+    font-weight: 600;
+}
+.course_cont h5{
+    margin: 0px;
+    color: rgb(60, 72, 82);
+    line-height: 24px;
+    letter-spacing: -0.005em;
+    font-size: 16px;
+    font-weight: 700;
+}

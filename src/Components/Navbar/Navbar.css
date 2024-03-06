@@ -1,0 +1,122 @@
+.navbar_wrapper {
+  width: 100%;
+  display: block;
+  position: relative;
+  -webkit-box-shadow: 0 3px 6px 0 rgba(50,50,50,.3);
+  box-shadow: 0 3px 6px 0 rgba(50,50,50,.3);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.navbar_wrapper .logo {
+  position: absolute;
+  top:0px;
+  background-color: white;
+  z-index: 1;
+}
+.navbar_wrapper .nav-item .nav-link{
+color:#000000;
+font-weight: 400;
+}
+.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
+color: #225f9d!important;
+font-weight: 600;
+}
+
+@media(max-width:767px){
+  .navbar_wrapper .logo {
+    position: absolute;
+    top:0px;
+    background-color: white;
+    z-index: 1;
+    left: 40%;
+  
+  }
+  ul.dropdown-menu.text-small.show {
+    position: absolute;
+    inset: 0px auto auto 0px;
+    margin: 0px;
+    transform: translate(5px, 34px)!important;
+}
+.navbar .navbar-collapse.collapsing{ 
+    height:auto !important;
+   }
+  .navbar .lateral-left{
+    left:-100%; 
+    animation: slide-out-left 200ms forwards;
+  }
+  .navbar .lateral-left.open{ 
+    animation: slide-in-left 200ms forwards;
+  }
+  .navbar .lateral-right{
+    right:-100%;
+    animation: slide-out-right 200ms forwards;
+  }
+  .navbar .lateral-right.open{ 
+    animation: slide-in-right 200ms forwards;
+  }
+  .navbar .navbar-collapse{ 
+    top:0px; bottom:0px; 
+    position:fixed; 
+    width:80%; width:calc(100% - 60px); 
+    max-width:320px; 
+    height:auto !important;
+
+    /* Optional styling */
+    background:#f8f8f8;
+    padding:30px;
+    top: 58px;
+  }
+  .navbar .lateral-left.open,
+  .navbar .lateral-right.open{
+    display:block !important;
+    overflow-y:auto;
+  }
+
+  .navbar-collapse {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      z-index: 1000;
+      background-color: #fff;
+      transition: all 0.2s ease-in-out; /* Increase duration here */
+    }
+     .navbar-collapse.show {
+      left: 0;
+    }
+    .navbar-toggler:focus,
+    .navbar-toggler:active,
+    .navbar-toggler-icon:focus {
+    outline: none!important;
+    box-shadow: none!important;
+    }
+   
+
+}
+
+@keyframes slide-in-left{ 
+  0%		{ left:-100%; }
+  100%	{ left:0px; }
+}
+@keyframes slide-out-left{
+  0%		{ left:0px; }
+  100%	{ left:-100%; }
+}
+@keyframes slide-in-right{ 
+  0%		{ right:-100%; }
+  100%	{ right:0px; }
+}
+@keyframes slide-out-right{
+  0%		{ right:0px; }
+  100%	{ right:-100%; }
+}
+/* .navbar-toggler-icon {
+transition: transform 0.3s ease-in-out;
+}
+
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+transform: rotate(90deg);
+} */
+

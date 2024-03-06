@@ -1,0 +1,69 @@
+.teacherlist{
+    /* border: 1px solid #e9ecef; */
+    /* border-radius: 10px; */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 24px;
+    /* background: #fff; */
+    background-color:#f8f8f8;
+}
+.teacherlist p{
+    line-height: 20px;
+}
+.teacher_courseN{
+    font-size: 14px;
+}
+.css-1rlk6g4 {
+    height: fit-content;
+    gap: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex: 0 0 auto;
+    order: 1;
+    align-self: stretch;
+    -webkit-box-flex: 0;
+}
+.css-u2fusp {
+    gap: 4px;
+    display: flex;
+    flex-direction: column;
+}
+.h6_variant {
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+}
+.css-18pj45v {
+    margin-right: 10px;
+    font-size: 12px;
+    line-height: 16px;
+    color: rgb(122, 139, 148);
+}
+.teacher_img {
+    position: relative;
+    text-align: center;
+}
+.teacher_img img {
+    max-width: 180px;
+    width: 100%;
+    border-radius: 10px;
+}
+.teacher_content h6 {
+    font-size: 14px;
+    color: #685f78;
+    margin-bottom: 10px;
+}
+.teacherlist .teacher_content {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    padding: 0 0 0 24px;
+}

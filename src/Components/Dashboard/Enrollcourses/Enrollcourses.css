@@ -1,0 +1,19 @@
+.stude_enroll_co {
+    width: 100%;
+    height: auto; 
+}
+.stude_en_content{
+display: flex;
+    flex-flow: column;
+    margin-top: 14px;
+    font-weight: 600;
+}
+.stude_en_content h5 {
+    margin: 0px;
+    color: rgb(60, 72, 82);
+    line-height: 24px;
+    letter-spacing: -0.005em;
+    font-size: 15px;
+    font-weight: 700;
+}
+
