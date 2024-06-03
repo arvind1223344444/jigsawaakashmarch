@@ -1,7 +1,7 @@
 //export const API_BASE_URL = 'https://example.com/api';
 //export const API_PATH = '/path';
 
-export const api_path = 'http://13.201.202.137:3000/';
+export const api_path = 'http://abacusdelhi.com:3000/';
 
 export const API_USER_SENDOTP_LOGIN_URL = `${api_path}api/register/user_auth`;
 export const API_USER_SENDOTP_URL  =`${api_path}api/register/otp_validate`;
